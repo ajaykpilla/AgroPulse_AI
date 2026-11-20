@@ -1,0 +1,6 @@
+{
+  "name": "AgroPulse AI - Crop Health & Sensor Platform",
+  "description": "Android-first agritech co-pilot visualizing real-time crop health, IoT field sensors, interactive heatmaps, and historical trend analytics for farmers, FPOs, and quick-commerce.",
+  "requestFramePermissions": ["geolocation", "microphone", "camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
