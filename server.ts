@@ -318,19 +318,19 @@ Return a JSON object with:
     }
   });
 
-  // 5. Consolidated 4-Minute Demo Video Download Endpoint
-  app.get("/api/download-demo-video", (req, res) => {
-    const videoPath = path.join(__dirname, "public", "AgroPulse_Consolidated_4Min_Demo_Walkthrough.mp4");
+  // 5. Consolidated 3-Minute (2:45) Demo Video Download Endpoint
+  app.get("/api/download-demo-video", (_req, res) => {
+    const videoPath = path.join(__dirname, "public", "AgroPulse_3Min_Demo_Walkthrough.mp4");
     if (fs.existsSync(videoPath)) {
       res.setHeader(
         "Content-Disposition",
-        'attachment; filename="AgroPulse_Consolidated_4Min_Demo_Walkthrough.mp4"'
+        'attachment; filename="AgroPulse_3Min_Demo_Walkthrough.mp4"'
       );
       res.setHeader("Content-Type", "video/mp4");
       return res.sendFile(videoPath);
     } else {
       res.status(404).json({
-        error: "Consolidated 4-minute video rendering is in progress. Please retry in a few moments.",
+        error: "Consolidated 3-minute walkthrough video is being prepared. Please retry shortly.",
       });
     }
   });

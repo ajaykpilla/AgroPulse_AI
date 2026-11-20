@@ -89,7 +89,7 @@ export default function App() {
         setPresentationDeckOpen(true);
         if (slideParam) {
           const slideNum = parseInt(slideParam, 10);
-          if (!isNaN(slideNum) && slideNum >= 1 && slideNum <= 7) {
+          if (!isNaN(slideNum) && slideNum >= 1 && slideNum <= 8) {
             setInitialDeckSlide(slideNum - 1);
           }
         }
@@ -378,11 +378,16 @@ export default function App() {
         }}
       />
 
-      {/* Interactive Presentation Deck Modal */}
+      {/* Interactive Pitch Overview Modal (8 Slides) */}
       <PresentationDeckModal
         isOpen={presentationDeckOpen}
         onClose={() => setPresentationDeckOpen(false)}
         initialSlide={initialDeckSlide}
+        onNavigateTab={(tab, subMode) => {
+          setPresentationDeckOpen(false);
+          setActiveTab(tab);
+          if (subMode) setEcosystemSubMode(subMode);
+        }}
         onSelectMode={(mode: AppMode) => {
           setPresentationDeckOpen(false);
           if (mode === "krishi") {
@@ -400,10 +405,19 @@ export default function App() {
         }}
       />
 
-      {/* 4-Minute Walkthrough Demo Video Player Modal */}
+      {/* 3-Minute (2:45) Walkthrough Demo Video Player Modal */}
       <DemoVideoPlayerModal
         isOpen={demoVideoOpen}
         onClose={() => setDemoVideoOpen(false)}
+        onSyncTab={(tab, subMode) => {
+          setActiveTab(tab);
+          if (subMode) setEcosystemSubMode(subMode);
+        }}
+        onExploreTab={(tab, subMode) => {
+          setDemoVideoOpen(false);
+          setActiveTab(tab);
+          if (subMode) setEcosystemSubMode(subMode);
+        }}
         onNavigateToPersona={(mode: AppMode) => {
           setDemoVideoOpen(false);
           if (mode === "krishi") {

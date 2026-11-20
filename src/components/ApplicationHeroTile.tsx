@@ -102,13 +102,23 @@ export const ApplicationHeroTile: React.FC<ApplicationHeroTileProps> = ({
               <span>Ask AgroPulse AI</span>
             </button>
 
+            {onOpenPresentationDeck && (
+              <button
+                type="button"
+                onClick={onOpenPresentationDeck}
+                className="px-3.5 py-2 text-xs font-semibold text-slate-100 bg-slate-800/90 hover:bg-slate-700 active:bg-slate-600 rounded-xl transition-all border border-slate-700/80 shadow-sm flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
+              >
+                <span>Pitch Overview</span>
+              </button>
+            )}
+
             {onOpenDemoVideo && (
               <button
                 type="button"
                 onClick={onOpenDemoVideo}
                 className="px-3.5 py-2 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 rounded-xl transition-all border border-emerald-400/40 shadow-sm flex items-center gap-1.5 cursor-pointer whitespace-nowrap"
               >
-                <span>4-Min Demo Video</span>
+                <span>3-Min Demo Video</span>
               </button>
             )}
 
